@@ -73,9 +73,10 @@ def habilitar_quantum():
         quantum_entry.pack_forget()
 
 def criar_janela():
-    global entrada_chegada, entrada_duracao, entrada_prioridade, lista_processos, algoritmo_var, quantum_label, quantum_entry
+    global entrada_chegada, entrada_duracao, entrada_prioridade, lista_processos, algoritmo_var, quantum_label, quantum_entry, priority_lock_var
     
     janela = tk.Tk()
+    priority_lock_var = tk.BooleanVar(value=False)
     janela.title("Simulador de Escalonamento")
     #janela.iconbitmap("assets/icon.ico")
     janela.configure(bg="#FFFFFF")
@@ -132,6 +133,7 @@ def criar_janela():
     tk.Radiobutton(radio_frame, text="4. SRTF", variable=algoritmo_var, value=4, command=habilitar_quantum, font=("Calibri", 14), fg="#2C2C2C", bg="#FFFFFF").grid(row=0, column=1, padx=40)
     tk.Radiobutton(radio_frame, text="5. Prioridade cooperativo", variable=algoritmo_var, value=5, command=habilitar_quantum, font=("Calibri", 14), fg="#2C2C2C", bg="#FFFFFF").grid(row=1, column=1, padx=40)
     tk.Radiobutton(radio_frame, text="6. Prioridade preemptivo", variable=algoritmo_var, value=6, command=habilitar_quantum, font=("Calibri", 14), fg="#2C2C2C", bg="#FFFFFF").grid(row=2, column=1, padx=40)
+    tk.Checkbutton(radio_frame, text="Usar Priority Lock", variable=priority_lock_var, font=("Calibri", 14), fg="#2C2C2C", bg="#FFFFFF").grid(row=3, column=0, pady=10, columnspan=2)
 
     quantum_label = tk.Label(janela, text="Informe o quantum para Round Robin:", font=("Calibri", 14), fg="#2C2C2C", bg="#FFFFFF")
     quantum_entry = tk.Entry(janela, bd=2, highlightbackground="#2C2C2C", highlightcolor="#2C2C2C", font=("Calibri", 12), justify="center")
