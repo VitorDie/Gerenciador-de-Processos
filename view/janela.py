@@ -49,7 +49,8 @@ def form_submit():
         algoritmo = algoritmo_var.get()
         quantum = quantum_entry.get()
 
-        media_execucao, media_espera = simular_escalonamento(processos_submit, algoritmo, quantum)
+        usar_lock = priority_lock_var.get()
+        media_execucao, media_espera = simular_escalonamento(processos_submit, algoritmo, quantum, usar_lock)
 
         grafico_processos(processos_submit, media_execucao, media_espera)
     except Exception as e:

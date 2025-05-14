@@ -1,11 +1,11 @@
 from control import fcfs, sjf, round_robin, srtf, prioridade_cooperativo, prioridade_preemptivo
 
-def simular_escalonamento(processos, algoritmo, quantum_entry=0):
+def simular_escalonamento(processos, algoritmo, quantum_entry=0, priority_lock_enabled=False):
     if not processos:
         raise Exception("Nenhum processo foi adicionado.")
 
     if algoritmo == 1:
-        media_espera, media_execucao = fcfs(processos)
+        media_espera, media_execucao = fcfs(processos, priority_lock_enabled)
     elif algoritmo == 2:
         media_espera, media_execucao = sjf(processos)
     elif algoritmo == 3:
