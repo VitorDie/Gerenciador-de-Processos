@@ -14,7 +14,7 @@ def simular_escalonamento(processos, algoritmo, quantum_entry=0, priority_lock_e
     elif algoritmo == 4:
         media_espera, media_execucao = srtf(processos)
     elif algoritmo == 5:
-        media_espera, media_execucao = prioridade_cooperativo(processos)
+        media_espera, media_execucao = prioridade_cooperativo(processos, priority_lock_enabled)
     elif algoritmo == 6:
         media_espera, media_execucao = prioridade_preemptivo(processos)
     else:
